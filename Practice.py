@@ -149,6 +149,3 @@ for each in websites:
     print(results)
 
 test
-
-
-
