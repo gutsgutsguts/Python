@@ -32,4 +32,4 @@ def extract_wwr_jobs(keyword):
                 }
                 results.append(job_data)
 
-        return results
+    return results
