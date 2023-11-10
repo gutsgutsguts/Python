@@ -1,19 +1,15 @@
 from wwr import extract_wwr_jobs
+from file import save_to_file
+from flask import Flask, render_template
 
-keyword = input("what do you want to search for?")
+app = Flask("JobsScrapper")
 
-wwrs = extract_wwr_jobs(keyword)
+@app.route("/")
+def home():
+    return render_template("home.html")
 
-print(wwrs)
+@app.route("/hello")
+def hello():
+    return 'hello you!'
 
-file_path = r"C:\Users\seonhong.jang\Desktop\개인폴더\extractors\python.csv"
-
-file = open(file_path, "w")
-
-file.write("Position,Company,Location,URL\n")
-
-for wwr in wwrs:
-    file.write(f"{wwr['position']},{wwr['company']},{wwr['region']},{wwr['link']}\n")
-
-file.close()
-
+app.run("172.20.105.157")
